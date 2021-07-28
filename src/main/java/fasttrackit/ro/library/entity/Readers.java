@@ -10,7 +10,7 @@ public class Readers {
     @Id
     @Column(name = "reader_id")
     @GeneratedValue()
-    private Integer readerId;
+    private Long readerId;
 
     @Column(name = "card_id")
     private String libraryCard;
@@ -25,11 +25,11 @@ public class Readers {
     public Readers() {
     }
 
-    public Integer getReaderId() {
+    public Long getReaderId() {
         return readerId;
     }
 
-    public void setReaderId(Integer readerId) {
+    public void setReaderId(Long readerId) {
         this.readerId = readerId;
     }
 
