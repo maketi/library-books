@@ -70,12 +70,12 @@ public class Books {
     }
 
     @Override
-    public java.lang.String toString() {
+    public String toString() {
         return "Books{" +
                 "bookId=" + bookId +
-                ", author=" + author +
-                ", title=" + title +
-                ", category=" + category +
+                ", author='" + author + '\'' +
+                ", title='" + title + '\'' +
+                ", category='" + category + '\'' +
                 ", publisherId=" + publisherId +
                 ", price=" + price +
                 '}';

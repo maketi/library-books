@@ -1,14 +1,15 @@
 package fasttrackit.ro.library.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
-@Entity(name = "readers")
+@Entity()
 public class Readers {
     @Id
     @Column(name = "reader_id")
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue()
     private Integer readerId;
 
     @Column(name = "card_id")
@@ -81,15 +82,15 @@ public class Readers {
     }
 
     @Override
-    public java.lang.String toString() {
+    public String toString() {
         return "Readers{" +
                 "readerId=" + readerId +
-                ", libraryCard=" + libraryCard +
-                ", firstName=" + firstName +
-                ", lastName=" + lastName +
-                ", address=" + address +
-                ", email=" + email +
-                ", phone=" + phone +
+                ", libraryCard='" + libraryCard + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }
