@@ -14,6 +14,8 @@ public class Books {
     private String author;
     private String title;
     private String category;
+    //aici am incercat sa fac un ENUM Category dar nu am
+    //reusit sa citesc din postgress si l-am modificat temporar in String
     @Column(name = "publisher_id")
     private int publisherId;
     private double price;
