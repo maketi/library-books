@@ -2,6 +2,7 @@ package fasttrackit.ro.library.entity;
 
 import javax.persistence.*;
 
+import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity(name = "books")
@@ -13,9 +14,8 @@ public class Books {
 
     private String author;
     private String title;
-    private String category;
-    //aici am incercat sa fac un ENUM Category dar nu am
-    //reusit sa citesc din postgress si l-am modificat temporar in String
+    @Enumerated(STRING)
+    private Category category;
     @Column(name = "publisher_id")
     private int publisherId;
     private double price;
@@ -47,11 +47,11 @@ public class Books {
         this.title = title;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
