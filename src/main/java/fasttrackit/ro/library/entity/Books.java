@@ -18,7 +18,7 @@ public class Books {
     @Enumerated(STRING)
     private Category category;
     @OneToOne(cascade = ALL)
-     @JoinColumn(name = "publisher_id")
+    @JoinColumn(name = "publisher_id")
     private Publisher publisher;
     private double price;
 
