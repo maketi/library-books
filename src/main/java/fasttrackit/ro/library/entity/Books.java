@@ -2,6 +2,7 @@ package fasttrackit.ro.library.entity;
 
 import javax.persistence.*;
 
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -16,8 +17,9 @@ public class Books {
     private String title;
     @Enumerated(STRING)
     private Category category;
-    @Column(name = "publisher_id")
-    private int publisherId;
+    @OneToOne(cascade = ALL)
+    @JoinColumn(name = "publisher_id")
+    private Publisher publisher;
     private double price;
 
     public Books() {
@@ -55,14 +57,6 @@ public class Books {
         this.category = category;
     }
 
-    public int getPublisherId() {
-        return publisherId;
-    }
-
-    public void setPublisherId(int publisherId) {
-        this.publisherId = publisherId;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -71,14 +65,22 @@ public class Books {
         this.price = price;
     }
 
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
     @Override
     public String toString() {
         return "Books{" +
                 "bookId=" + bookId +
                 ", author='" + author + '\'' +
                 ", title='" + title + '\'' +
-                ", category='" + category + '\'' +
-                ", publisherId=" + publisherId +
+                ", category=" + category +
+                ", publisher=" + publisher +
                 ", price=" + price +
                 '}';
     }
