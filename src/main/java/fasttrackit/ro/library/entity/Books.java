@@ -2,7 +2,6 @@ package fasttrackit.ro.library.entity;
 
 import javax.persistence.*;
 
-import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -12,15 +11,13 @@ public class Books {
     @Column(name = "book_id")
     @GeneratedValue(strategy = IDENTITY)
     private Long bookId;
-
-    private String author;
     private String title;
+    private String author;
+    private int amount;
     @Enumerated(STRING)
     private Category category;
-    @OneToOne(cascade = ALL)
-    @JoinColumn(name = "publisher_id")
-    private Publisher publisher;
-    private double price;
+    private String publisher;
+    private int year;
 
     public Books() {
     }
@@ -33,6 +30,14 @@ public class Books {
         this.bookId = bookId;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getAuthor() {
         return author;
     }
@@ -41,12 +46,12 @@ public class Books {
         this.author = author;
     }
 
-    public String getTitle() {
-        return title;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public Category getCategory() {
@@ -57,31 +62,32 @@ public class Books {
         this.category = category;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public Publisher getPublisher() {
+    public String getPublisher() {
         return publisher;
     }
 
-    public void setPublisher(Publisher publisher) {
+    public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 
     @Override
     public String toString() {
         return "Books{" +
                 "bookId=" + bookId +
-                ", author='" + author + '\'' +
                 ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", amount=" + amount +
                 ", category=" + category +
-                ", publisher=" + publisher +
-                ", price=" + price +
+                ", publisher='" + publisher + '\'' +
+                ", year=" + year +
                 '}';
     }
 }
