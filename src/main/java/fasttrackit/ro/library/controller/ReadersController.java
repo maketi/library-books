@@ -3,9 +3,7 @@ package fasttrackit.ro.library.controller;
 import fasttrackit.ro.library.entity.Readers;
 import fasttrackit.ro.library.service.ReadersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +20,22 @@ public class ReadersController {
     @GetMapping
     public List<Readers> getAll() {
         return readersService.getAll();
+    }
+
+    @PostMapping
+    Readers createReader(@RequestBody Readers readers) {
+        return readersService.createReader(readers);
+    }
+
+    @PatchMapping("{readersId}")
+    public Readers updateReaders(@PathVariable Integer readersId,
+                                 @RequestBody Readers newReader) {
+        return readersService.updateReaders(readersId, newReader);
+    }
+
+    @DeleteMapping("{readersId}")
+    void deleteReaders(@PathVariable Integer readersId) {
+        readersService.deleteReaders(readersId);
     }
 }
 

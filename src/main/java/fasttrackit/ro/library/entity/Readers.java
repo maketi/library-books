@@ -12,9 +12,9 @@ public class Readers {
     @Id
     @Column(name = "reader_id")
     @GeneratedValue(strategy = IDENTITY)
-    private Long readerId;
+    private Integer readerId;
     @Column(name = "card_id")
-    private String libraryCard;
+    private Integer libraryCard;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
@@ -26,19 +26,19 @@ public class Readers {
     public Readers() {
     }
 
-    public Long getReaderId() {
+    public Integer getReaderId() {
         return readerId;
     }
 
-    public void setReaderId(Long readerId) {
+    public void setReaderId(Integer readerId) {
         this.readerId = readerId;
     }
 
-    public String getLibraryCard() {
+    public Integer getLibraryCard() {
         return libraryCard;
     }
 
-    public void setLibraryCard(String libraryCard) {
+    public void setLibraryCard(Integer libraryCard) {
         this.libraryCard = libraryCard;
     }
 

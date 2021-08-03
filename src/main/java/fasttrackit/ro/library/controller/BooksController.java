@@ -3,9 +3,7 @@ package fasttrackit.ro.library.controller;
 import fasttrackit.ro.library.entity.Books;
 import fasttrackit.ro.library.service.BooksService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +20,21 @@ public class BooksController {
     @GetMapping
     public List<Books> getAllBooks() {
         return booksService.getAll();
+    }
+
+    @PostMapping
+    Books createBook(@RequestBody Books books) {
+        return booksService.createBook(books);
+    }
+
+    @PatchMapping("{booksId}")
+    public Books updateBooks(@PathVariable Integer booksId,
+                             @RequestBody Books newBook) {
+        return booksService.updateBooks(booksId, newBook);
+    }
+
+    @DeleteMapping("{booksId}")
+    void deleteBooks(@PathVariable Integer booksId) {
+        booksService.deleteBooks(booksId);
     }
 }

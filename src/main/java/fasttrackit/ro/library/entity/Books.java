@@ -10,7 +10,7 @@ public class Books {
     @Id
     @Column(name = "book_id")
     @GeneratedValue(strategy = IDENTITY)
-    private Long bookId;
+    private Integer bookId;
     private String title;
     private String author;
     private int amount;
@@ -22,11 +22,11 @@ public class Books {
     public Books() {
     }
 
-    public Long getBookId() {
+    public Integer getBookId() {
         return bookId;
     }
 
-    public void setBookId(Long bookId) {
+    public void setBookId(Integer bookId) {
         this.bookId = bookId;
     }
 
