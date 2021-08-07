@@ -85,7 +85,7 @@ $(document).ready(() => {
         const readerId = this.parentElement.id;
         fetch(`/api/library/readers/${readerId}`, {
             method: 'DELETE'
-        }).then(response => location.reload());
+        }).then(_response => location.reload());
     });
     $('.edit-icon').click(function () {
         readerToEdit = this.parentElement.id;
