@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/library/books")
+@RequestMapping("library/books")
 public class BooksUIController {
     private final BooksService service;
 

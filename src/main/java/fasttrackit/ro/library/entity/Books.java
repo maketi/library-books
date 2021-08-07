@@ -1,22 +1,32 @@
 package fasttrackit.ro.library.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity(name = "books")
+@Entity
+@Table(name = "books")
 public class Books {
     @Id
     @Column(name = "book_id")
     @GeneratedValue(strategy = IDENTITY)
     private Integer bookId;
+    @NotEmpty
     private String title;
+    @NotEmpty
     private String author;
-    private int amount;
     @Enumerated(STRING)
     private Category category;
+    @Min(value = 1)
+    private int amount;
     private String publisher;
+    @Min(value = 1)
+    @Max(value = 2021)
     private int year;
 
     public Books() {

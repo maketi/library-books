@@ -2,39 +2,34 @@ package fasttrackit.ro.library.controller;
 
 import fasttrackit.ro.library.entity.Books;
 import fasttrackit.ro.library.service.BooksService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/library/books/data")
+@RequestMapping("api/library/books")
 public class BooksController {
-    @Autowired
+
     private final BooksService booksService;
 
     public BooksController(BooksService booksService) {
         this.booksService = booksService;
     }
 
-    @GetMapping
-    public List<Books> getAllBooks() {
-        return booksService.getAll();
-    }
-
     @PostMapping
-    Books createBook(@RequestBody Books books) {
-        return booksService.createBook(books);
+    Books addBook(@RequestBody Books newBook) {
+        newBook.setBookId(null);
+        return booksService.addBook(newBook);
     }
 
     @PatchMapping("{booksId}")
-    public Books updateBooks(@PathVariable Integer booksId,
-                             @RequestBody Books newBook) {
-        return booksService.updateBooks(booksId, newBook);
+    public Optional<Books> updateBook(@PathVariable Integer booksId,
+                                      @RequestBody Books books) {
+        return booksService.replaceBook(booksId, books);
     }
 
     @DeleteMapping("{booksId}")
-    void deleteBooks(@PathVariable Integer booksId) {
-        booksService.deleteBooks(booksId);
+    Books deleteBooks(@PathVariable int booksId) {
+        return booksService.deleteBook(booksId);
     }
 }

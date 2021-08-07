@@ -2,6 +2,7 @@ package fasttrackit.ro.library.service;
 
 import fasttrackit.ro.library.entity.Readers;
 import fasttrackit.ro.library.repository.ReadersRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,12 +17,11 @@ public class ReadersService {
     }
 
     public List<Readers> getAll() {
-        return repository.findAll();
+        return repository.findAll(Sort.by(Sort.Direction.ASC,"readerId"));
     }
 
     public Readers addReader(Readers newReader) {
-
-        return repository.saveAndFlush(newReader);
+        return repository.save(newReader);
     }
 
     public Readers deleteReaders(Integer readersId) {

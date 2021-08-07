@@ -1,5 +1,7 @@
 package fasttrackit.ro.library.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +9,7 @@ import javax.persistence.Id;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity()
+@Entity
 public class Readers {
     @Id
     @Column(name = "reader_id")
@@ -15,12 +17,17 @@ public class Readers {
     private Integer readerId;
     @Column(name = "card_id")
     private Integer libraryCard;
+    @NotEmpty
     @Column(name = "first_name")
     private String firstName;
+    @NotEmpty
     @Column(name = "last_name")
     private String lastName;
+    @NotEmpty
     private String address;
+    @NotEmpty
     private String email;
+    @NotEmpty
     private String phone;
 
     public Readers() {
