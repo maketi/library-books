@@ -19,31 +19,30 @@ public class ReadersService {
         return repository.findAll();
     }
 
-    public Readers createReader(Readers readers) {
-        return repository.saveAndFlush(readers);
+    public Readers addReader(Readers newReader) {
+
+        return repository.saveAndFlush(newReader);
     }
 
-    public void deleteReaders(Integer readersId) {
-        boolean findReader = repository.existsById(readersId);
-        if (!findReader) {
-            throw new IllegalStateException("Reader with id: " + readersId + " does not exist");
-        }
-        repository.deleteById(readersId);
+    public Readers deleteReaders(Integer readersId) {
+        Optional<Readers> reader = repository.findById(readersId);
+        reader.ifPresent(repository::delete);
+        return reader.orElse(null);
     }
 
-    public Readers updateReaders(Integer readersId, Readers newReader) {
-        Optional<Readers> existingReader = repository.findById(readersId);
-        if (!existingReader.isPresent()) {
-            throw new IllegalStateException("Reader not found");
-        }
-        Readers result = existingReader.get();
-        result.setReaderId(result.getReaderId());
-        result.setLibraryCard(result.getLibraryCard());
-        result.setFirstName(newReader.getFirstName() != null ? newReader.getFirstName() : result.getFirstName());
-        result.setLastName(newReader.getLastName() != null ? newReader.getLastName() : result.getLastName());
-        result.setAddress(newReader.getAddress() != null ? newReader.getAddress() : result.getAddress());
-        result.setEmail(newReader.getEmail() != null ? newReader.getEmail() : result.getEmail());
-        result.setPhone(newReader.getPhone() != null ? newReader.getPhone() : result.getPhone());
-        return repository.save(result);
+    public Optional<Readers> replaceReader(int readerId, Readers readers) {
+        return repository.findById(readerId)
+                .map(dbReader -> patchReader(dbReader, readers))
+                .map(repository::save);
+    }
+
+    public Readers patchReader(Readers dbReader, Readers readers) {
+        dbReader.setFirstName(readers.getFirstName());
+        dbReader.setLastName(readers.getLastName());
+        dbReader.setLibraryCard(readers.getLibraryCard());
+        dbReader.setAddress(readers.getAddress());
+        dbReader.setEmail(readers.getEmail());
+        dbReader.setPhone(readers.getPhone());
+        return dbReader;
     }
 }

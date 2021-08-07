@@ -1,11 +1,13 @@
-<html>
+<html lang="en">
 <head>
+    <title>LibraryReaders</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet">
     <script src="/readers.js"></script>
+    <meta name="viewport" content="width=device-width">
 
 </head>
 <body>
@@ -57,10 +59,15 @@
             <td data-th-text="${readers.email}"></td>
             <td data-th-text="${readers.phone}"></td>
             <td>
-                <i class="fas fa-edit mr-2" data-toggle="modal" data-target="#readers-modal"></i>
+                <div data-th-id="${readers.readerId}" style="cursor: pointer">
+                    <i class="fas fa-edit mr-2 edit-icon" data-target="#readers-modal" data-toggle="modal"></i>
+                    <a data-th-href="'/library/readers/'+${readers.readerId}"></a>
+                </div>
             </td>
             <td>
-                <i class="fas fa-trash-alt"></i>
+                <div data-th-id="${readers.readerId}" style="cursor: pointer">
+                    <i class="fas fa-trash-alt delete-icon"></i>
+                </div>
             </td>
         </tr>
         </tbody>
