@@ -17,7 +17,7 @@ public class BooksService {
     }
 
     public List<Books> getAll() {
-        return booksRepository.findAll(Sort.by(Sort.Direction.ASC,"bookId"));
+        return booksRepository.findAll(Sort.by(Sort.Direction.ASC, "bookId"));
     }
 
     public Books addBook(Books newBook) {
