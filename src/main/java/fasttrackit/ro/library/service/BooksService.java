@@ -1,5 +1,6 @@
 package fasttrackit.ro.library.service;
 
+
 import fasttrackit.ro.library.entity.Books;
 import fasttrackit.ro.library.repository.BooksRepository;
 import org.springframework.data.domain.Sort;
@@ -38,6 +39,7 @@ public class BooksService {
         dbBook.setAmount(books.getAmount());
         dbBook.setPublisher(books.getPublisher());
         dbBook.setYear(books.getYear());
+        dbBook.setImage(books.getImage());
         return dbBook;
     }
 
@@ -45,5 +47,9 @@ public class BooksService {
         return booksRepository.findById(booksId)
                 .map(dbBook -> patchBook(dbBook, books))
                 .map(booksRepository::save);
+    }
+
+    public Optional<Books> getBook(int booksId) {
+        return booksRepository.findById(booksId);
     }
 }

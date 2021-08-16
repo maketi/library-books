@@ -1,11 +1,10 @@
 package fasttrackit.ro.library.entity;
 
+
+import javax.persistence.*;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -27,8 +26,9 @@ public class Readers {
     private String address;
     @NotEmpty
     private String email;
-    @NotEmpty
     private String phone;
+    @ManyToMany
+    private List<Books> books;
 
     public Readers() {
     }
@@ -89,16 +89,25 @@ public class Readers {
         this.phone = phone;
     }
 
+    public List<Books> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Books> books) {
+        this.books = books;
+    }
+
     @Override
     public String toString() {
         return "Readers{" +
                 "readerId=" + readerId +
-                ", libraryCard='" + libraryCard + '\'' +
+                ", libraryCard=" + libraryCard +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
+                ", books=" + books +
                 '}';
     }
 }

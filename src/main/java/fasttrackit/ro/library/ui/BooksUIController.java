@@ -4,6 +4,7 @@ import fasttrackit.ro.library.service.BooksService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -19,5 +20,11 @@ public class BooksUIController {
     String booksPage(Model model) {
         model.addAttribute("books", service.getAll());
         return "books";
+    }
+
+    @GetMapping("{bookId}")
+    String singleBookPage(@PathVariable int bookId, Model model) {
+        model.addAttribute("books", service.getBook(bookId));
+        return "single-book";
     }
 }

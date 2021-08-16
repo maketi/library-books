@@ -1,0 +1,110 @@
+body {
+
+    /* background-image: url("https://images.unsplash.com/photo-1537202108838-e7072bad1927?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80");
+     background-image: url("https://images.unsplash.com/photo-1600431521340-491eca880813?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+ */
+    background-color: whitesmoke;
+}
+
+th {
+    text-align: left;
+}
+
+.navbar-custom {
+    background-color: #000;
+    color: #ffffff
+}
+
+.navbar-custom {
+    height: 100px;
+    padding-left: 15px;
+}
+
+.navbar-brand {
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navbar-nav {
+    padding-left: 1px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navbar-nav > li > a {
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+}
+
+.table-custom {
+    background-color: white;
+    table-layout: fixed;
+}
+
+.thead-custom {
+    background-color: #040000;
+    color: #ffffff
+}
+
+.btn-custom {
+    background-color: #305EBB;
+    color: lightgoldenrodyellow;
+}
+
+.form-inline {
+    width: max-content;
+    padding-inline: 1px;
+    padding-right: 15px;
+}
+
+body {
+    font-family: Varela Round;
+    background: whitesmoke;
+}
+
+/* Card Styles */
+
+.card-sl {
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.03);
+}
+
+/*.card-image img {
+    max-height: 100%;
+    max-width: 100%;
+    padding: 8px 15px 5px;
+    object-fit: cover;
+}*/
+
+.card-text {
+    padding: 10px 15px;
+    background: #fff;
+    font-size: 14px;
+    color: #636262;
+}
+
+.card-button {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    width: 100%;
+    background-color: #1F487E;
+    color: #fff;
+    border-radius: 0 0 8px 8px;
+}
+
+.card-button:hover {
+    background-color: #1D3461;
+    color: #fff;
+}
+
+.img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
+    padding: 5px 0 0;
+}

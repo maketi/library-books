@@ -1,10 +1,13 @@
 package fasttrackit.ro.library.entity;
 
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+
+import java.util.List;
 
 import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -28,6 +31,11 @@ public class Books {
     @Min(value = 1)
     @Max(value = 2021)
     private int year;
+    @Column(name = "url_image")
+    private String image;
+
+    @ManyToMany
+    private List<Readers> readers;
 
     public Books() {
     }
@@ -88,16 +96,35 @@ public class Books {
         this.year = year;
     }
 
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public List<Readers> getReaders() {
+        return readers;
+    }
+
+    public void setReaders(List<Readers> readers) {
+        this.readers = readers;
+    }
+
     @Override
     public String toString() {
         return "Books{" +
                 "bookId=" + bookId +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", amount=" + amount +
                 ", category=" + category +
+                ", amount=" + amount +
                 ", publisher='" + publisher + '\'' +
                 ", year=" + year +
+                ", image='" + image + '\'' +
+                ", readers=" + readers +
                 '}';
     }
 }

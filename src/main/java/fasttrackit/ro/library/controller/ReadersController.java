@@ -38,4 +38,3 @@ public class ReadersController {
         return readersService.deleteReaders(readersId);
     }
 }
-

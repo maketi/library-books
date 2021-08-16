@@ -17,6 +17,7 @@ $(document).ready(() => {
         const amount = $('#modal-books-amount').val();
         const publisher = $('#modal-books-publisher').val();
         const year = $('#modal-books-year').val();
+        const image = $('#modal-books-image').val();
 
         fetch(`/api/library/books/${bookToEdit}`, {
             method: 'PATCH',
@@ -26,7 +27,8 @@ $(document).ready(() => {
                 category: category,
                 amount: amount,
                 publisher: publisher,
-                year: year
+                year: year,
+                image: image
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -48,6 +50,7 @@ $(document).ready(() => {
         const amount = $('#modal-books-amount').val();
         const publisher = $('#modal-books-publisher').val();
         const year = $('#modal-books-year').val();
+        const image = $('#modal-books-image').val();
 
         fetch('/api/library/books', {
             method: 'POST',
@@ -57,7 +60,8 @@ $(document).ready(() => {
                 category: category,
                 amount: amount,
                 publisher: publisher,
-                year: year
+                year: year,
+                image: image
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -79,16 +83,17 @@ $(document).ready(() => {
         $('#modal-books-amount').val('');
         $('#modal-books-publisher').val('');
         $('#modal-books-year').val('');
+        $('#modal-books-image').val('');
     }
 
-    $('.delete-button').click(function () {
+    $('.delete-icon').click(function () {
         const bookId = this.parentElement.id;
         fetch(`/api/library/books/${bookId}`, {
             method: 'DELETE'
         }).then(_response => location.reload());
     });
 
-    $('.edit-button').click(function () {
+    $('.edit-icon').click(function () {
         bookToEdit = this.parentElement.id;
         const row = this.parentElement.parentElement.parentElement;
         const title = row.children[1].innerText;
@@ -97,6 +102,7 @@ $(document).ready(() => {
         const amount = row.children[4].innerText
         const publisher = row.children[5].innerText;
         const year = row.children[6].innerText;
+        const image = row.children[7].innerText;
 
         $('#modal-books-title').val(title);
         $('#modal-books-author').val(author);
@@ -104,6 +110,7 @@ $(document).ready(() => {
         $('#modal-books-amount').val(amount);
         $('#modal-books-publisher').val(publisher);
         $('#modal-books-year').val(year);
+        $('#modal-books-image').val(image);
 
     });
 
