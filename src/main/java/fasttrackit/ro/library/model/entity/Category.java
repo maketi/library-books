@@ -1,4 +1,4 @@
-package fasttrackit.ro.library.entity;
+package fasttrackit.ro.library.model.entity;
 
 public enum Category {
     TECHNICAL,

@@ -1,7 +1,7 @@
 package fasttrackit.ro.library.service;
 
 
-import fasttrackit.ro.library.entity.Books;
+import fasttrackit.ro.library.model.entity.Books;
 import fasttrackit.ro.library.repository.BooksRepository;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

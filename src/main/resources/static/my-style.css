@@ -21,6 +21,7 @@ th {
 }
 
 .navbar-brand {
+    color: dodgerblue;
     padding-left: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -60,30 +61,40 @@ th {
 }
 
 body {
-    font-family: Varela Round;
+    font-family: Varela Round, Varela Round, sans-serif;
     background: whitesmoke;
 }
 
 /* Card Styles */
 
 .card-sl {
+    border-radius: 10px 10px 0 0;
     width: auto;
-    border-radius: 10px;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
 }
 
-/*.card-image img {
+.card-image img {
     max-height: 100%;
     max-width: 100%;
-    padding: 8px 15px 5px;
+    padding: 8px 8px 15px 5px;
     object-fit: cover;
-}*/
+}
 
-.card-text {
-    padding: 10px 15px;
-    background: #fff;
-    font-size: 14px;
-    color: #636262;
+.text-custom {
+    padding: 1px 5px;
+    background: #ffffff;
+    font-family: Arial Black, Arial,sans-serif;
+    font-size: 20px;
+    color: darkslateblue;
+}
+
+.text-custom1 {
+    padding: 5px 10px;
+    background: whitesmoke;
+    font-family: Arial Black, Arial,sans-serif;
+    font-size: 25px;
+    color: #040000;
 }
 
 .card-button {
@@ -93,18 +104,14 @@ body {
     width: 100%;
     background-color: #1F487E;
     color: #fff;
-    border-radius: 0 0 8px 8px;
-}
-
-.card-button:hover {
-    background-color: #1D3461;
-    color: #fff;
+    border-radius: 0 0 10px 10px;
 }
 
 .img-center {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 98%;
+    width: 99%;
     padding: 5px 0 0;
+
 }

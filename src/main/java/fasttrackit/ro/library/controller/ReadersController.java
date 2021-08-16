@@ -1,6 +1,6 @@
 package fasttrackit.ro.library.controller;
 
-import fasttrackit.ro.library.entity.Readers;
+import fasttrackit.ro.library.model.entity.Readers;
 import fasttrackit.ro.library.service.ReadersService;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,12 +1,10 @@
-package fasttrackit.ro.library.entity;
+package fasttrackit.ro.library.model.entity;
 
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 import static javax.persistence.EnumType.STRING;
@@ -19,9 +17,9 @@ public class Books {
     @Column(name = "book_id")
     @GeneratedValue(strategy = IDENTITY)
     private Integer bookId;
-    @NotEmpty
+    @NotBlank
     private String title;
-    @NotEmpty
+    @NotBlank
     private String author;
     @Enumerated(STRING)
     private Category category;

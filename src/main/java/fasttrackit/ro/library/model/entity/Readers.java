@@ -1,8 +1,8 @@
-package fasttrackit.ro.library.entity;
+package fasttrackit.ro.library.model.entity;
 
 
 import javax.persistence.*;
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.NotEmpty;
 
 import java.util.List;
 
