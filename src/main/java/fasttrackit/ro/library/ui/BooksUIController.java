@@ -20,11 +20,15 @@ public class BooksUIController {
     }
 
     @GetMapping
-    String booksPage(Model model, @RequestParam(required = false) Integer showBook) {
-        model.addAttribute("books", service.getAll());
-        ofNullable(showBook)
-                .flatMap(service::getBook)
-                .ifPresent(books -> model.addAttribute("showBook", books));
+    String booksPage(Model model, @RequestParam(required = false) Integer showBook, String keyword) {
+        if (keyword != null) {
+            model.addAttribute("books", service.findByKeyword(keyword));
+        } else {
+            model.addAttribute("books", service.getAll());
+            ofNullable(showBook)
+                    .flatMap(service::getBook)
+                    .ifPresent(books -> model.addAttribute("showBook", books));
+        }
         return "books";
     }
 

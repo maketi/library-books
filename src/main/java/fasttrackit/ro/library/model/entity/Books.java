@@ -94,6 +94,14 @@ public class Books {
         this.year = year;
     }
 
+    public List<Readers> getReaders() {
+        return readers;
+    }
+
+    public void setReaders(List<Readers> readers) {
+        this.readers = readers;
+    }
+
 
     public String getImage() {
         return image;
@@ -101,14 +109,6 @@ public class Books {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public List<Readers> getReaders() {
-        return readers;
-    }
-
-    public void setReaders(List<Readers> readers) {
-        this.readers = readers;
     }
 
     @Override

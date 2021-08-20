@@ -52,4 +52,8 @@ public class BooksService {
     public Optional<Books> getBook(int booksId) {
         return booksRepository.findById(booksId);
     }
+
+    public List<Books> findByKeyword(String keyword) {
+        return booksRepository.findByKeyword(keyword);
+    }
 }

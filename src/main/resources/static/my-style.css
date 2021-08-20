@@ -74,26 +74,26 @@ body {
     text-align: center;
 }
 
-.card-image img {
-    max-height: 100%;
-    max-width: 100%;
-    padding: 8px 8px 15px 5px;
+.card-image {
+    height: 600px;
+    width: 420px;
+    padding: 10px 10px 5px 5px;
     object-fit: cover;
 }
 
 .text-custom {
     padding: 1px 5px;
     background: #ffffff;
-    font-family: Arial Black, Arial,sans-serif;
-    font-size: 20px;
+    font-family: Arial Black, Arial, sans-serif;
+    font-size: 28px;
     color: darkslateblue;
 }
 
 .text-custom1 {
     padding: 5px 10px;
     background: whitesmoke;
-    font-family: Arial Black, Arial,sans-serif;
-    font-size: 25px;
+    font-family: Arial Black, Arial, sans-serif;
+    font-size: 32px;
     color: #040000;
 }
 
@@ -113,5 +113,4 @@ body {
     margin-right: auto;
     width: 99%;
     padding: 5px 0 0;
-
 }
