@@ -11,7 +11,7 @@ import fasttrackit.ro.library.service.BooksService;
 import static java.util.Optional.ofNullable;
 
 @Controller
-@RequestMapping("library/books")
+@RequestMapping("library")
 public class BooksUIController {
     private final BooksService service;
 
@@ -19,7 +19,7 @@ public class BooksUIController {
         this.service = booksService;
     }
 
-    @GetMapping
+    @GetMapping("/books")
     String booksPage(Model model, @RequestParam(required = false) Integer showBook, String keyword) {
         if (keyword != null) {
             model.addAttribute("books", service.findByKeyword(keyword));
@@ -32,10 +32,15 @@ public class BooksUIController {
         return "books";
     }
 
-    @GetMapping("{bookId}")
+    @GetMapping("/books/{bookId}")
     String singleBookPage(@PathVariable int bookId, Model pageModel) {
         pageModel.addAttribute("book", service.getBook(bookId).orElse(null));
 
         return "single-book";
+    }
+
+    @GetMapping()
+    String firstPage() {
+        return "library";
     }
 }
