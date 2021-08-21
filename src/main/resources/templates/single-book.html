@@ -39,10 +39,8 @@
         <div class="col-md-6">
             <div class="card-sl">
                 <li style="list-style-type: none">
-                    <img class="card-image" src="${book.image}"
-                         alt="">
-                   <!--  <img class="card-image" src="https://images-na.ssl-images-amazon.com/images/I/81rSJbBHyGL.jpg"
-                          alt="">-->
+                    <img class="card-image" th:src="@{${book.image}}"
+                         alt="" src="">
                     <div class="text-xs font-weight-bold text-primary text-uppercase mt-3">
                         <span data-th-text="${book.category}"></span>
                     </div>

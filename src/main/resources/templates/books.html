@@ -48,15 +48,15 @@
 
         <div class="col">
             <form class="form-inline md-form form-sm " th:action="@{/library/books}" method="get">
-                <input id="txtSearch" class="form-control form-control-sm mb-1 w-99" type="text" placeholder="Search.."
-                       name="keyword"/>
+                <label for="txtSearch"></label><input id="txtSearch" class="form-control form-control-sm mb-1 w-99" type="text" placeholder="Search.."
+                                                      name="keyword"/>
                 <input id="mySubmit" type="submit" value="Go" class="hidden mb-1"/>
             </form>
         </div>
 
     </div>
     <table class="table table-custom ">
-        <col style="width:4%">
+        <col style="width:3%">
         <col style="width:30%">
         <col style="width:22%">
         <col style="width:10%">
@@ -79,7 +79,7 @@
         </thead>
         <tbody>
         <tr data-th-each="books: ${books}">
-            <td data-th-text="${books.bookId}" align="center"></td>
+            <td data-th-text="${books.bookId}" ></td>
             <td data-th-text="${books.title}"></td>
             <td data-th-text="${books.author}"></td>
             <td data-th-text="${books.category}"></td>
@@ -145,7 +145,7 @@
                 </div>
                 <div class="form-group">
                     <label for="modal-books-image">Book Image(url)</label>
-                    <input class="form-control" id="modal-books-image" type="text"/>
+                    <input class="form-control" id="modal-books-image" type="url"/>
                 </div>
 
             </div>

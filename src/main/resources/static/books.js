@@ -86,7 +86,12 @@ $(document).ready(() => {
         $('#modal-books-image').val('');
     }
 
+
     $('.delete-icon').click(function () {
+        let confirm = window.confirm("Are you sure you want to delete this book?");
+        if (!confirm) {
+            return false;
+        }
         const bookId = this.parentElement.id;
         fetch(`/api/library/books/${bookId}`, {
             method: 'DELETE'
@@ -111,7 +116,6 @@ $(document).ready(() => {
         $('#modal-books-publisher').val(publisher);
         $('#modal-books-year').val(year);
         $('#modal-books-image').val(image);
-
     });
 
     $('#add-book-main-button').click(() => {
