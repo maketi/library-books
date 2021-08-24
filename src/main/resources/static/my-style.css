@@ -37,7 +37,7 @@ th {
 
 .table-custom {
     background-color: white;
-    table-layout: fixed;
+    table-layout: auto;
 }
 
 .thead-custom {
@@ -50,11 +50,11 @@ th {
     color: lightgoldenrodyellow;
 }
 
-.form-inline {
-    width: max-content;
+/*.form-inline {
+    width: auto;
     padding-inline: 1px;
-    padding-right: 15px;
-}
+    padding-right: 10px;
+}*/
 
 body {
     font-family: Varela Round, Varela Round, sans-serif;

@@ -17,7 +17,7 @@ public class ReadersService {
     }
 
     public List<Readers> getAll() {
-        return repository.findAll(Sort.by(Sort.Direction.ASC,"readerId"));
+        return repository.findAll(Sort.by(Sort.Direction.ASC, "readerId"));
     }
 
     public Readers addReader(Readers newReader) {
@@ -44,5 +44,14 @@ public class ReadersService {
         dbReader.setEmail(readers.getEmail());
         dbReader.setPhone(readers.getPhone());
         return dbReader;
+    }
+
+    public List<Readers> findByKeyword(String keyword) {
+        return repository.findByKeyword(keyword);
+    }
+
+
+    public Optional<Readers> getReader(int readerId) {
+        return repository.findById(readerId);
     }
 }

@@ -27,10 +27,10 @@
             <a class="nav-link px-1 mx-1 py-3 my-n2" href="/library/readers">Readers</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link px-1 mx-1 py-3 my-n2" href="#">Borrowed books </a>
+            <a class="nav-link px-1 mx-1 py-3 my-n2" href="/library/borrowedBooks">Borrowed books </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link px-1 mx-1 py-3 my-n2" href="#">Info</a>
+            <a class="nav-link px-1 mx-1 py-3 my-n2" href="/library/info">Info</a>
         </li>
     </ul>
 </nav>
@@ -39,7 +39,7 @@
         <div class="col-md-6">
             <div class="card-sl">
                 <li style="list-style-type: none">
-                    <img class="card-image" th:src="@{${book.image}}"
+                    <img class="card-image" data-th-if="${book.image!=null}" th:src="@{${book.image}}"
                          alt="" src="">
                     <div class="text-xs font-weight-bold text-primary text-uppercase mt-3">
                         <span data-th-text="${book.category}"></span>

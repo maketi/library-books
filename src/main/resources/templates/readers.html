@@ -28,19 +28,39 @@
             <a class="nav-link px-1 mx-1 py-3 my-n2" href="/library/readers">Readers</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link px-1 mx-1 py-3 my-n2" href="#">Borrowed books </a>
+            <a class="nav-link px-1 mx-1 py-3 my-n2" href="/library/borrowedBooks">Borrowed books </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link px-1 mx-1 py-3 my-n2" href="#">Info</a>
+            <a class="nav-link px-1 mx-1 py-3 my-n2" href="/library/info">Info</a>
         </li>
     </ul>
 </nav>
-<div class="container mt-5">
-    <button type="button" class="btn btn-primary btn-sm mb-2  " data-toggle="modal" data-target="#readers-modal">Add
-        reader
-    </button>
-    <table class="table">
-        <thead class="thead-light">
+
+<div class="container mt-4 col-sm-7">
+    <div class="form-inline ">
+        <button type="button" class="btn btn-custom btn-sm mb-2" data-toggle="modal" data-target="#readers-modal">Add
+            reader
+        </button>
+        <div class="col mt-2 ">
+            <form class="form-inline" th:action="@{/library/readers}" method="get">
+                <label for="txtSearch"></label>
+                <input id="txtSearch" class="form-control form-control-sm w-99" type="text" placeholder="Search.."
+                       name="keyword"/>
+                <input id="mySubmit" type="submit" value="Go" class="hidden"/>
+            </form>
+        </div>
+    </div>
+    <table class="table table-custom">
+        <col style="width:3%">
+        <col style="width:13%">
+        <col style="width:13%">
+        <col style="width:7%">
+        <col style="width:25%">
+        <col style="width:15%">
+        <col style="width:9%">
+        <col style="width:5%">
+
+        <thead class="thead-custom">
         <tr>
             <th>No</th>
             <th>FirstName</th>
@@ -49,33 +69,62 @@
             <th>Address</th>
             <th>E-mail</th>
             <th>Phone</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Actions</th>
+
         </tr>
         </thead>
         <tbody>
         <tr data-th-each="readers: ${readers}">
             <td data-th-text="${readers.readerId}"></td>
-            <td data-th-text="${readers.firstName}"></td>
-            <td data-th-text="${readers.lastName}"></td>
+            <td>
+                <a class="text-decoration-none text-dark"
+                   data-th-href="'/library/readers?showReader='+${readers.readerId}"
+                   data-th-text="${readers.firstName}"></a>
+            </td>
+            <td><a class="text-decoration-none text-dark"
+                   data-th-href="'/library/readers?showReader='+${readers.readerId}"
+                   data-th-text="${readers.lastName}"></a></td>
             <td data-th-text="${readers.libraryCard}"></td>
             <td data-th-text="${readers.address}"></td>
             <td data-th-text="${readers.email}"></td>
             <td data-th-text="${readers.phone}"></td>
             <td>
                 <div data-th-id="${readers.readerId}" style="cursor: pointer">
-                    <i class="fas fa-edit mr-2 edit-icon" data-target="#readers-modal" data-toggle="modal"></i>
+                    <i class="fas fa-edit mr-2 edit-icon" data-target="#readers-modal" data-toggle="modal"
+                       style="color: blue"></i>
                     <a data-th-href="'/library/readers/'+${readers.readerId}"></a>
-                </div>
-            </td>
-            <td>
-                <div data-th-id="${readers.readerId}" style="cursor: pointer">
-                    <i class="fas fa-trash-alt delete-icon"></i>
+                    <i class="fas fa-trash-alt delete-icon" style="color: red;"></i>
                 </div>
             </td>
         </tr>
         </tbody>
     </table>
+
+    <div class="shadow-lg p-2 mb-5 mt-5 bg-white rounded col-sm-5" data-th-if="${showReader!=null}">
+        <div class="row no-gutters justify-content-center mb-2" style="background-color: darkseagreen">
+            <div class="col-sm-4 align-items-center ">
+                <img class="card-img" alt="" height="180" width="140"
+                     src="https://spng.subpng.com/20180315/kfe/kisspng-ocean-county-library-central-library-scalable-vect-svg-image-library-5aaac27b1095a4.4460469615211403470679.jpg"
+                >
+            </div>
+            <div class="col mr-2">
+                <div class="text-xs font-weight-bold mb-2" style="color: mediumblue">
+                    <span data-th-text="${showReader.libraryCard}"></span>
+                </div>
+                <div class="h5 mb-2 font-weight-bold  text-gray-800">
+                    <th>Name:</th>
+                    <span data-th-text="${showReader.firstName}"></span>
+                    <span data-th-text="${showReader.lastName}"></span>
+                </div>
+                <div class="h5 mb-2 font-weight-bold text-gray-800">
+                    <span data-th-text="${showReader.address}"></span>
+                </div>
+                <div class="h5 mb-2 font-weight-bold text-gray-800">
+                    <span data-th-text="${showReader.phone}"></span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="modal fade" id="readers-modal">
     <div class="modal-dialog modal-dialog-centered">
@@ -96,7 +145,8 @@
                 </div>
                 <div class="form-group">
                     <label for="modal-readers-libraryCard">LibraryCard</label>
-                    <input class="form-control" id="modal-readers-libraryCard" type="number" min="10000" max="99999"/>
+                    <input class="form-control" id="modal-readers-libraryCard" type="number" min="10000"
+                           max="99999"/>
                 </div>
                 <div class="form-group">
                     <label for="modal-readers-address">Address</label>

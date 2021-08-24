@@ -82,11 +82,16 @@ $(document).ready(() => {
     }
 
     $('.delete-icon').click(function () {
+        let confirm = window.confirm("Are you sure you want to delete this reader?");
+        if (!confirm) {
+            return false;
+        }
         const readerId = this.parentElement.id;
         fetch(`/api/library/readers/${readerId}`, {
             method: 'DELETE'
         }).then(_response => location.reload());
     });
+
     $('.edit-icon').click(function () {
         readerToEdit = this.parentElement.id;
         const row = this.parentElement.parentElement.parentElement;

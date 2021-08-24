@@ -33,10 +33,10 @@
             <a class="nav-link px-1 mx-1 py-3 my-n2" href="/library/readers">Readers</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link px-1 mx-1 py-3 my-n2" href="#">Borrowed books </a>
+            <a class="nav-link px-1 mx-1 py-3 my-n2" href="/library/borrowedBooks">Borrowed books </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link px-1 mx-1 py-3 my-n2" href="#">Info</a>
+            <a class="nav-link px-1 mx-1 py-3 my-n2" href="/library/info">Info</a>
         </li>
     </ul>
 </nav>
@@ -48,8 +48,9 @@
 
         <div class="col">
             <form class="form-inline md-form form-sm " th:action="@{/library/books}" method="get">
-                <label for="txtSearch"></label><input id="txtSearch" class="form-control form-control-sm mb-1 w-99" type="text" placeholder="Search.."
-                                                      name="keyword"/>
+                <label for="txtSearch"></label>
+                <input id="txtSearch" class="form-control form-control-sm mb-1 w-99" type="text" placeholder="Search.."
+                       name="keyword"/>
                 <input id="mySubmit" type="submit" value="Go" class="hidden mb-1"/>
             </form>
         </div>
@@ -79,7 +80,7 @@
         </thead>
         <tbody>
         <tr data-th-each="books: ${books}">
-            <td data-th-text="${books.bookId}" ></td>
+            <td data-th-text="${books.bookId}"></td>
             <td data-th-text="${books.title}"></td>
             <td data-th-text="${books.author}"></td>
             <td data-th-text="${books.category}"></td>
