@@ -66,6 +66,6 @@ public class LibraryUIController {
 
     @GetMapping("/info")
     String infoPage() {
-        return "info";
+        return "contact";
     }
 }
