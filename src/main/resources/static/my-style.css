@@ -100,3 +100,9 @@ body {
     color: #fff;
     border-radius: 0 0 10px 10px;
 }
+.form-group.required .control-label:after{
+    font-weight: bold;
+    color: red;
+    content: "*";
+    position: absolute;
+}

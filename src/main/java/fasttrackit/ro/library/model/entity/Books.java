@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 import static javax.persistence.EnumType.STRING;
@@ -17,14 +18,16 @@ public class Books {
     @Column(name = "book_id")
     @GeneratedValue(strategy = IDENTITY)
     private Integer bookId;
-    @NotBlank
+    @NotEmpty
     private String title;
-    @NotBlank
+    @NotEmpty
     private String author;
     @Enumerated(STRING)
     private Category category;
+    @NotEmpty
     @Min(value = 1)
     private int amount;
+    @NotEmpty
     private String publisher;
     @Min(value = 1)
     @Max(value = 2021)

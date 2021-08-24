@@ -3,7 +3,6 @@ package fasttrackit.ro.library.model.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-
 import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -15,6 +14,7 @@ public class Readers {
     @Column(name = "reader_id")
     @GeneratedValue(strategy = IDENTITY)
     private Integer readerId;
+    @NotEmpty
     @Column(name = "card_id")
     private Integer libraryCard;
     @NotEmpty
