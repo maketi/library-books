@@ -64,7 +64,7 @@ public class LibraryUIController {
         return "borrowedBooks";
     }
 
-    @GetMapping("/info")
+    @GetMapping("/contact")
     String infoPage() {
         return "contact";
     }

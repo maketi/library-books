@@ -31,7 +31,7 @@
             <a class="nav-link px-1 mx-1 py-3 my-n2" href="/library/borrowedBooks">Borrowed books </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link px-1 mx-1 py-3 my-n2" href="/library/info">Contact</a>
+            <a class="nav-link px-1 mx-1 py-3 my-n2" href="/library/contact">Contact</a>
         </li>
     </ul>
 </nav>
@@ -102,13 +102,15 @@
 
     <div class="shadow-lg p-2 mb-5 mt-5 bg-white rounded col-sm-5" data-th-if="${showReader!=null}">
         <div class="row no-gutters justify-content-center mb-2" style="background-color: darkseagreen">
-            <div class="col-sm-4 align-items-center ">
+            <div class="col-sm-4  align-items-center ">
                 <img class="card-img" alt="" height="180" width="140"
                      src="https://spng.subpng.com/20180315/kfe/kisspng-ocean-county-library-central-library-scalable-vect-svg-image-library-5aaac27b1095a4.4460469615211403470679.jpg"
                 >
             </div>
-            <div class="col mr-2">
-                <div class="text-xs font-weight-bold mb-2" style="color: mediumblue">
+            <div class="col mr-2 ">
+                <div class="text-xs font-weight-bold mb-3" style="color: mediumblue">
+                    <th>Card No:</th>
+
                     <span data-th-text="${showReader.libraryCard}"></span>
                 </div>
                 <div class="h5 mb-2 font-weight-bold  text-gray-800">
@@ -117,9 +119,11 @@
                     <span data-th-text="${showReader.lastName}"></span>
                 </div>
                 <div class="h5 mb-2 font-weight-bold text-gray-800">
+                    <th>Address:</th>
                     <span data-th-text="${showReader.address}"></span>
                 </div>
                 <div class="h5 mb-2 font-weight-bold text-gray-800">
+                    <th>Phone:</th>
                     <span data-th-text="${showReader.phone}"></span>
                 </div>
             </div>
