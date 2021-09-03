@@ -65,11 +65,17 @@
             <artifactId>hibernate-validator</artifactId>
             <version>7.0.1.Final</version>
         </dependency>
-        <!--       <dependency>
-               <groupId>org.hibernate</groupId>
-               <artifactId>hibernate-validator</artifactId>
-               <version>5.3.4.Final</version>
-           </dependency>-->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.0-M1</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.21</version><!--$NO-MVN-MAN-VER$ -->
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
